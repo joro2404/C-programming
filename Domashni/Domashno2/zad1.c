@@ -17,7 +17,7 @@ int get_score(int gun_accuracy, int shot_accuracy){
 		return 10;
 	}
 	
-	return 10 - (shot_accuracy - gun_accuracy)/((100-gun_accuracy)/10);
+	return 9 - (shot_accuracy - gun_accuracy - 1)/((100-gun_accuracy)/10);
 	
 }
 
@@ -40,17 +40,23 @@ void test_gun(struct gun_t gun, int shot_count){
 }
 
 int main(){
-	
+	//int shot_accuracy;
 	struct gun_t pistol;
 	strcpy(pistol.model,"Glock-18");
+
 	printf("Insert an accuracy for the gun ->");
 	scanf("%d",&pistol.accuracy);
+
 	printf("Insert a capacity for the gun ->");
 	scanf("%d",&pistol.ammo_capacity);
 
+	//printf("Insert a shot_accuracy ->");
+	//scanf("%d",&shot_accuracy);
+
+	//printf("%d\n", get_score(pistol.accuracy, shot_accuracy));
 	test_gun(pistol, pistol.ammo_capacity);
 	//printf("%d\n",get_score(40,36));
 	
-	
+	return 0;	
 	
 }
