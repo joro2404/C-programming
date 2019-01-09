@@ -14,7 +14,7 @@ struct shop_t {
 	struct product_t products[100];
 };
 
-void buy_products(struct shop_t shop, char* product_name, int product_count){
+struct shop_t buy_products(struct shop_t shop, char* product_name, int product_count){
 
 	for(int i=0;i<shop.product_count;i++){
 		//printf("\n%d\n", strcmp(product_name, shop.products[i].name));
@@ -33,6 +33,8 @@ void buy_products(struct shop_t shop, char* product_name, int product_count){
 
 		}
 	}
+
+	return shop;	
 }
 
 int main(){
@@ -53,7 +55,7 @@ int main(){
     shop.products[3].price = 0.5;
     shop.products[3].quantity = 100;
     
-	buy_products(shop, "Bread", 4);
+	shop = buy_products(shop, "Bread", 4);
 	printf("%lf\n", shop.earnings);
     return 0;
 }
