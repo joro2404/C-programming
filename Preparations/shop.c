@@ -55,7 +55,8 @@ int main(){
     shop.products[3].price = 0.5;
     shop.products[3].quantity = 100;
     
-	shop = buy_products(shop, "Bread", 4);
+	shop = buy_products(shop, "Cookies", 10);
+	shop = buy_products(shop, "Cookies", 15);
 	printf("%lf\n", shop.earnings);
     return 0;
 }
