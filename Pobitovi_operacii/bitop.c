@@ -22,6 +22,9 @@ int main (){
 	printf("%d\n",print_bits(var));
 	printf("%d\n",count_ones(var));
 
-	printf("%d\n", var>>3);
+	if(1 || 0){
+		printf("%d\n", var>>3);
+	}	
+	
 	return 0;
 }
