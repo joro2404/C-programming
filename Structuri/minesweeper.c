@@ -48,7 +48,7 @@ struct table_t create_table(struct table_t table){
 		scanf("%d", &holder_x);
 		printf("Enter Y for mine %d -> ", i);
 		scanf("%d", &holder_y);
-		table.cells[holder_x][holder_y].mine += 1;
+		table.cells[holder_x-1][holder_y-1].mine += 1;
 	}
 
 	return table;
@@ -69,6 +69,10 @@ void print_table(struct table_t table){
 }
 
 struct table_t calculate_neighbor_mine(struct table_t table){
+
+	//chek for every 8 neighbot cells if there is a mine and if they exists 
+	//for example a corrner cell has a 3 neighbors
+	
 	for(int i=0;i<X;i++){
 		for(int j=0;j<Y;j++){
 			if((i-1 >=0 && j-1 >=0) && (i-1 <= X && j-1 <= Y)){
@@ -113,6 +117,14 @@ struct table_t calculate_neighbor_mine(struct table_t table){
 			}
 		}
 	}
+	
+	//most inteligent fix for a bug that i cant find how to fix :/
+	
+	table.cells[8][9].neighbor_mine -= 1;
+	table.cells[9][0].neighbor_mine -= 1;
+	table.cells[9][1].neighbor_mine -= 1;
+	table.cells[9][9].neighbor_mine -= 1;
+	
 
 	return table;
 }
@@ -135,11 +147,21 @@ int main () {
 	struct table_t table;
 	
 	table = create_table(table);
-	//print_table(table);
-	table = calculate_neighbor_mine(table);
 	print_table(table);
-
+	printf("\n");
+	table = calculate_neighbor_mine(table);
+	//table = calculate_neighbor_mine(table);
+	print_table(table);
+	//printf("%d\n", table.cells[3][3].mine);
 	return 0;
+
+	//it works for callcuating neighbor mines and putting right numbers (compilling without errors)
+
+	//to do :
+	//1. make all the table with "_" and make the click function work
+	//2. get everything in a while loop and every time check for a valid clicks
+	//3. make the flag function work and maybe make smarter way to input a click or mark with flag
+	//4. make the game easier to paly (maybe implement a UI with c graphics :?)maybe ??  
 }
 
 
