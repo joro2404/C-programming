@@ -10,4 +10,6 @@ int main() {
 
 	printf("%p\n %d", *address, *address);
 
+
+	return 0;
 }
