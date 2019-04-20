@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<math.h>
+#include<stdlib.h>
 
 int is_prime(int n) {
 	
@@ -25,9 +26,11 @@ int sum_digit(int n){
 	return sum;
 }
 
-int main(){
+int main(int argc ,char** argv){
 
-	for(int i = 1; i<10001;i++){
+	int n = atoi(argv[1]);	
+	
+	for(int i = 1; i<n;i++){
 	
 		if(is_prime(sum_digit(i)) && sum_digit(i) != 1)printf("%d\n", i);
 	}

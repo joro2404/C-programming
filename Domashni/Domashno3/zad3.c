@@ -66,5 +66,6 @@ int main() {
 		printf("\nPress Ctrl+C for exit :)\n");
 	}
 
+	return 0;
 }
 

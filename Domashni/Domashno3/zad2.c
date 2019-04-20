@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 int X_horizontal, Y_horizontal;
 int X_vertical, Y_vertical;
@@ -118,9 +119,9 @@ int max_multi_diagonaly_left(int n, int m[n][n]){
 	return max;
 }
 
-int main() {
+int main(int argc ,char** argv) {
 
-	int n = 15;
+	int n = atoi(argv[1]);
 	int m[n][n];
 	
 	create_matrix(n, m);
